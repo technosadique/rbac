@@ -66,40 +66,70 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 
-##URL
+# Laravel Multi-Tenant RBAC SaaS Application
+
+This project is a **Laravel 11** based SaaS application implementing **Role-Based Access Control (RBAC)** with **organization-level data isolation**.
+
+The system supports **platform-level users** and **organization-level users**, ensuring strict access control and tenant isolation.
+
+
+# Application URL
 http://127.0.0.1:8000/login
 
-## Login credentials
+# run step-by-step from CLI
+php artisan migrate
+php artisan db:seed
+php artisan serve
 
-super_admin
-superadmin@example.com  /  12345
+# Super Admin (Platform User)
+Email: superadmin@example.com
+Password: 12345
+Role: super_admin
 
-org_admin
-tcsadmin@example.com / 12345
+#Organization Admin
+Email: tcsadmin@example.com
+Password: 12345
+Role: org_admin
 
-org_hr
-tcshr@example.com / 12345
+# Organization HR
+Email: tcshr@example.com
+Password: 12345
+Role: org_hr
 
-org_sales
-tcssales@example.com / 12345
+# Organization Sales
+Email: tcssales@example.com
+Password: 12345
+Role: org_sales
 
-## Access Matrix 
-super admin  can access
-------------------------
-organizations 
-employees 
-leads/crm 
 
-org_admin can access
-------------------------
-employees 
-leads/crm
+# Access Matrix (RBAC)
+Super Admin
 
-org_hr can access
-------------------------
-employees
+Can access:
 
-org_sales can access
-------------------------
-leads/crm
+Organizations
+
+Employees
+
+Leads / CRM
+
+Organization Admin
+Can access:
+
+Employees
+
+Leads / CRM
+
+Organization HR
+
+Can access:
+
+Employees
+
+Organization Sales
+
+Can access:
+
+Leads / CRM
+
 
